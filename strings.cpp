@@ -62,3 +62,14 @@ int main()
 
    return 0;
 }
+
+   /*
+    string part1 {"C++"};
+    string part2 {" is good"};
+    cout <<  part1 + part2 << endl;
+    cout << "C++" +  " is good" << endl;   // Can't use "C++" + " is good as they are as we are
+                                           // combining two c-style string, use strcat().
+    
+    cout << part2 + "good" << endl;         // Works because we part2 is string object and now "good"
+                                            // also becomes string object. object + c-style string is allowed.
+    */
