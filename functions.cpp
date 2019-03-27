@@ -19,25 +19,16 @@ void largest_number();              // Prototype
 
 int main() 
 {
-    char selection {};
+    
     
     /*
        Using do while because inspite of the condition, 
        the statement gets printed atlease one time.
     */
     do {
-    
-        cout << "P - Print numbers" << endl;
-        cout << "A - Add a number" << endl;
-        cout << "M - Display the mean of the numbers" << endl;
-        cout << "S - Display the smallest number" << endl;
-        cout << "L - Display the largest number" << endl;
-        cout << "Q - Quit" << endl << endl;
-        
-        cout << "Enter your choice: ";
-        cin >> selection;
+        display_menu();
+        char selection = get_selection();
        
-
         if (selection == 'P' || selection == 'p') 
             // Calling function
             print_list(selection);     // Don't use char selection. 
@@ -72,6 +63,21 @@ int main()
     return 0;
 }
 
+void display_menu() {
+    cout << "P - Print numbers" << endl;
+    cout << "A - Add a number" << endl;
+    cout << "M - Display the mean of the numbers" << endl;
+    cout << "S - Display the smallest number" << endl;
+    cout << "L - Display the largest number" << endl;
+    cout << "Q - Quit" << endl << endl;
+    cout << "Enter your choice: ";
+}
+
+char get_selection() {
+    char selection {};
+    cin >> selection;
+    return selection;
+}
 
 void print_list(char selection) {
     if (lst.size() == 0)
