@@ -11,20 +11,22 @@ void print(int array[] , size_t array_size ) {  // Don't write array[] {} and ar
 
 // Notice the * before apply_all, it is because we will return a pointer from the function
 int *apply_all(int array1[],size_t array1_size, int array2[],size_t array2_size) {  
-	int *new_storage {nullptr};							// Setting pointer to nowhere
-	int size {0};
-	new_storage = new int[array1_size * array2_size];  // Allocating dynamic storage of 15 integers
+	int *new_storage {nullptr};							            // Setting pointer to nowhere
+	int size {0};   
+	new_storage = new int[array1_size * array2_size];               // Allocating dynamic storage of 15 integers
+	// Applying logic 				
 	for (int i {0} ; i < array2_size ; i++){
 		for (int j {0}, k {0}; j < array1_size ; j++,k++) {
-			new_storage[size] = array2[i] * array1[j];  // new_storage[size++] can also be used.
+			new_storage[size] = array2[i] * array1[j]; 			    // new_storage[size++] can also be used.
 			size++;
 		}
 	}
-	return new_storage; 							// Returning the pointer
+	return new_storage; 											// Returning the pointer
 }
 
 int main() {
-	// Now value can't be modified
+
+	// Now value can't be modified as const is used
     const size_t array1_size {5};
     const size_t array2_size {3};
 
@@ -47,6 +49,8 @@ int main() {
 
     cout << "Results: ";
     print(results, results_size);
+
+    delete [] results;                   // Deleting the allocating storage
 
     return 0;
 
